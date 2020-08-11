@@ -11,3 +11,63 @@ flex_message = FlexSendMessage(
     contents=wallet_menu_flex
 )
 line_bot_api.reply_message(event.reply_token, flex_message)
+##############
+
+
+def create_action_data(user_id, exchange_type, order_price):
+    return {
+        "user_id": user_id,
+        "exchange_type": exchange_type,
+        "order_price": order_price,
+    }
+
+
+def create_text_content(user_name):
+    return {
+        "type": "text",
+        "gravity": "center",
+        "text": user_name,
+    }
+
+
+def create_button_content(data):
+    label = data["order_price"]
+    try :
+        float(label)
+        label = "$" + label
+    except:
+        pass
+
+    return {
+        "type": "button",
+        "style": "primary",
+        "action": {
+            "type": "postback",
+            "label": label,
+            "data": json.dumps(data)
+        }
+    }
+
+
+def create_carousel_content(content_list):
+    return {
+        "type": "bubble",
+        "size": "micro",
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": content_list
+        }
+    }
+
+contents = []
+for item in data_list.values():
+    text1 = create_text_content(item["display_name1"])
+    text2 = create_text_content(item["display_name2"])
+    button = create_button_content(item)
+    content = create_carousel_content([text1, text2, button])
+    contents.append(content)
+flex_message = FlexSendMessage(
+    alt_text='carousel_list',
+    contents={"type": "carousel", "contents": contents}
+)
