@@ -1,0 +1,85 @@
+{
+  "type": "bubble",
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "style": "primary",
+        "height": "sm",
+        "action": {
+          "type": "postback",
+          "label": "比特幣帳戶",
+          "data": "{\"menu_type\": \"btc_wallet\"}"
+        }
+      },
+      {
+        "type": "button",
+        "style": "primary",
+        "height": "sm",
+        "action": {
+          "type": "postback",
+          "label": "以太坊帳戶",
+          "data": "{\"menu_type\": \"eth_wallet\"}"
+        }
+      },
+      {
+        "type": "button",
+        "style": "primary",
+        "height": "sm",
+        "action": {
+          "type": "postback",
+          "label": "銀行帳戶",
+          "data": "{\"menu_type\": \"bank_wallet\"}"
+        }
+      },
+      {
+        "type": "button",
+        "style": "secondary",
+        "height": "sm",
+        "action": {
+          "type": "postback",
+          "label": "新增一筆買單",
+          "data": "{\"menu_type\": \"new_buy\"}"
+        }
+      },
+      {
+        "type": "button",
+        "style": "secondary",
+        "height": "sm",
+        "action": {
+          "type": "postback",
+          "label": "新增一筆賣單",
+          "data": "{\"menu_type\": \"new_sell\"}"
+        }
+      },
+      {
+        "type": "button",
+        "style": "secondary",
+        "height": "sm",
+        "action": {
+          "type": "postback",
+          "label": "我的交易訂單",
+          "data": "{\"menu_type\": \"my_order\"}"
+        }
+      },
+      {
+        "type": "button",
+        "style": "link",
+        "height": "sm",
+        "action": {
+          "type": "postback",
+          "label": "當前最新行情",
+          "data": "{\"menu_type\": \"latest_market\"}"
+        }
+      },
+      {
+        "type": "spacer",
+        "size": "sm"
+      }
+    ],
+    "flex": 0
+  }
+}
