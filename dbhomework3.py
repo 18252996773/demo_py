@@ -4,3 +4,10 @@ flex_message = FlexSendMessage(
     contents={"type": "carousel", "contents": contents}
 )
 line_bot_api.reply_message(event.reply_token, flex_message)
+##########
+wallet_menu_flex = json.load(open("/home/jedaya9253/mysite/wallet_menu_flex.json", 'r', encoding='utf8'))
+flex_message = FlexSendMessage(
+    alt_text='錢包選單',
+    contents=wallet_menu_flex
+)
+line_bot_api.reply_message(event.reply_token, flex_message)
